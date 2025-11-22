@@ -1,0 +1,19 @@
+current directory: /home/esmao/hospital-project/backend/vendor/bundle/ruby/3.4.0/gems/debug-1.11.0/ext/debug
+/home/esmao/.local/share/mise/installs/ruby/3.4.7/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/esmao/hospital-project/backend/vendor/bundle/ruby/3.4.0/gems/debug-1.11.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20251122-13589-rhrmqq sitelibdir\=./.gem.20251122-13589-rhrmqq clean
+
+current directory: /home/esmao/hospital-project/backend/vendor/bundle/ruby/3.4.0/gems/debug-1.11.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20251122-13589-rhrmqq sitelibdir\=./.gem.20251122-13589-rhrmqq
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/esmao/hospital-project/backend/vendor/bundle/ruby/3.4.0/gems/debug-1.11.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20251122-13589-rhrmqq sitelibdir\=./.gem.20251122-13589-rhrmqq install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20251122-13589-rhrmqq/debug
+
+current directory: /home/esmao/hospital-project/backend/vendor/bundle/ruby/3.4.0/gems/debug-1.11.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20251122-13589-rhrmqq sitelibdir\=./.gem.20251122-13589-rhrmqq clean

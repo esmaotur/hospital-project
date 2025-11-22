@@ -1,0 +1,56 @@
+1
+00:00:00,000 --> 00:00:03,000
+Kullanıcı giriş sayfasına yönlendiriliyor
+
+2
+00:00:03,000 --> 00:00:05,000
+Email yazılıyor
+
+3
+00:00:05,000 --> 00:00:08,000
+Şifre yazılıyor
+
+4
+00:00:08,000 --> 00:00:12,000
+Giriş yapılıyor
+
+5
+00:00:12,000 --> 00:00:14,000
+Dashboard sayfası yüklendi
+
+6
+00:00:14,000 --> 00:00:20,000
+Doktorlar listeleniyor
+
+7
+00:00:20,000 --> 00:00:22,000
+Doktor listesi sayfası yüklendi
+
+8
+00:00:22,000 --> 00:00:27,000
+İlk doktor seçildi ve randevu sayfasına gidiliyor
+
+9
+00:00:27,000 --> 00:00:28,000
+Randevu formu sayfası yüklendi
+
+10
+00:00:28,000 --> 00:00:30,000
+Tarih seçiliyor
+
+11
+00:00:30,000 --> 00:00:32,000
+Saat seçiliyor
+
+12
+00:00:32,000 --> 00:00:34,000
+Not ekleniyor
+
+13
+00:00:34,000 --> 00:00:38,000
+Randevu onaylanıyor
+
+14
+00:00:38,000 --> 00:00:40,000
+Randevularım sayfası yüklendi - Test tamamlandı!
+

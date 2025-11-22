@@ -1,0 +1,86 @@
+[
+  {
+    "start": 0,
+    "end": 3,
+    "text": "Kullanıcı giriş sayfasına yönlendiriliyor",
+    "duration": 3
+  },
+  {
+    "start": 3,
+    "end": 5,
+    "text": "Email yazılıyor",
+    "duration": 2
+  },
+  {
+    "start": 5,
+    "end": 8,
+    "text": "Şifre yazılıyor",
+    "duration": 3
+  },
+  {
+    "start": 8,
+    "end": 12,
+    "text": "Giriş yapılıyor",
+    "duration": 4
+  },
+  {
+    "start": 12,
+    "end": 14,
+    "text": "Dashboard sayfası yüklendi",
+    "duration": 2
+  },
+  {
+    "start": 14,
+    "end": 20,
+    "text": "Doktorlar listeleniyor",
+    "duration": 6
+  },
+  {
+    "start": 20,
+    "end": 22,
+    "text": "Doktor listesi sayfası yüklendi",
+    "duration": 2
+  },
+  {
+    "start": 22,
+    "end": 27,
+    "text": "İlk doktor seçildi ve randevu sayfasına gidiliyor",
+    "duration": 5
+  },
+  {
+    "start": 27,
+    "end": 28,
+    "text": "Randevu formu sayfası yüklendi",
+    "duration": 1
+  },
+  {
+    "start": 28,
+    "end": 30,
+    "text": "Tarih seçiliyor",
+    "duration": 2
+  },
+  {
+    "start": 30,
+    "end": 32,
+    "text": "Saat seçiliyor",
+    "duration": 2
+  },
+  {
+    "start": 32,
+    "end": 34,
+    "text": "Not ekleniyor",
+    "duration": 2
+  },
+  {
+    "start": 34,
+    "end": 38,
+    "text": "Randevu onaylanıyor",
+    "duration": 4
+  },
+  {
+    "start": 38,
+    "end": 40,
+    "text": "Randevularım sayfası yüklendi - Test tamamlandı!",
+    "duration": 2
+  }
+]

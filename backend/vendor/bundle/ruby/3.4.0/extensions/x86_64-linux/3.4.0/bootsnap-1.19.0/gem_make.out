@@ -1,0 +1,22 @@
+current directory: /home/esmao/hospital-project/backend/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.19.0/ext/bootsnap
+/home/esmao/.local/share/mise/installs/ruby/3.4.7/bin/ruby extconf.rb
+checking for fdatasync() in unistd.h... yes
+checking for whether -D_GNU_SOURCE is accepted as CPPFLAGS... yes
+checking for whether -O3 is accepted as CFLAGS... yes
+checking for whether -std=c99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /home/esmao/hospital-project/backend/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.19.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20251122-13589-lnv30f sitelibdir\=./.gem.20251122-13589-lnv30f clean
+
+current directory: /home/esmao/hospital-project/backend/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.19.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20251122-13589-lnv30f sitelibdir\=./.gem.20251122-13589-lnv30f
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/esmao/hospital-project/backend/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.19.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20251122-13589-lnv30f sitelibdir\=./.gem.20251122-13589-lnv30f install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20251122-13589-lnv30f/bootsnap
+
+current directory: /home/esmao/hospital-project/backend/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.19.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20251122-13589-lnv30f sitelibdir\=./.gem.20251122-13589-lnv30f clean
