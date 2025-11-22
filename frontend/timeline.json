@@ -1,86 +1,58 @@
 [
   {
-    "start": 0,
-    "end": 3,
-    "text": "Kullanıcı giriş sayfasına yönlendiriliyor",
-    "duration": 3
+    "message": "Kullanıcı giriş sayfasına yönlendiriliyor",
+    "timestamp": 1763817649350
   },
   {
-    "start": 3,
-    "end": 5,
-    "text": "Email yazılıyor",
-    "duration": 2
+    "message": "Email yazılıyor",
+    "timestamp": 1763817656207
   },
   {
-    "start": 5,
-    "end": 8,
-    "text": "Şifre yazılıyor",
-    "duration": 3
+    "message": "Şifre yazılıyor",
+    "timestamp": 1763817658177
   },
   {
-    "start": 8,
-    "end": 12,
-    "text": "Giriş yapılıyor",
-    "duration": 4
+    "message": "Giriş yapılıyor",
+    "timestamp": 1763817660013
   },
   {
-    "start": 12,
-    "end": 14,
-    "text": "Dashboard sayfası yüklendi",
-    "duration": 2
+    "message": "Dashboard sayfası yüklendi",
+    "timestamp": 1763817663226
   },
   {
-    "start": 14,
-    "end": 20,
-    "text": "Doktorlar listeleniyor",
-    "duration": 6
+    "message": "Doktorlar listeleniyor",
+    "timestamp": 1763817664770
   },
   {
-    "start": 20,
-    "end": 22,
-    "text": "Doktor listesi sayfası yüklendi",
-    "duration": 2
+    "message": "Doktor listesi sayfası yüklendi",
+    "timestamp": 1763817667880
   },
   {
-    "start": 22,
-    "end": 27,
-    "text": "İlk doktor seçildi ve randevu sayfasına gidiliyor",
-    "duration": 5
+    "message": "İlk doktor seçildi ve randevu sayfasına gidiliyor",
+    "timestamp": 1763817669427
   },
   {
-    "start": 27,
-    "end": 28,
-    "text": "Randevu formu sayfası yüklendi",
-    "duration": 1
+    "message": "Randevu formu sayfası yüklendi",
+    "timestamp": 1763817672578
   },
   {
-    "start": 28,
-    "end": 30,
-    "text": "Tarih seçiliyor",
-    "duration": 2
+    "message": "Tarih seçiliyor",
+    "timestamp": 1763817673603
   },
   {
-    "start": 30,
-    "end": 32,
-    "text": "Saat seçiliyor",
-    "duration": 2
+    "message": "Saat seçiliyor",
+    "timestamp": 1763817675393
   },
   {
-    "start": 32,
-    "end": 34,
-    "text": "Not ekleniyor",
-    "duration": 2
+    "message": "Not ekleniyor",
+    "timestamp": 1763817677158
   },
   {
-    "start": 34,
-    "end": 38,
-    "text": "Randevu onaylanıyor",
-    "duration": 4
+    "message": "Randevu onaylanıyor",
+    "timestamp": 1763817679312
   },
   {
-    "start": 38,
-    "end": 40,
-    "text": "Randevularım sayfası yüklendi - Test tamamlandı!",
-    "duration": 2
+    "message": "Randevularım sayfası yüklendi - Test tamamlandı!",
+    "timestamp": 1763817682468
   }
 ]

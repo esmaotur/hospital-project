@@ -2,63 +2,65 @@
 const fs = require('fs');
 const path = require('path');
 
-const testFile = path.join(__dirname, '../cypress/e2e/appointments.cy.ts');
-const srtFile = 'narration.srt';
 const timelineFile = 'timeline.json';
+const srtFile = 'narration.srt';
+const segmentsFile = 'segments.json';
 
-if (!fs.existsSync(testFile)) {
-    console.error(`Error: Test file not found at ${testFile}`);
+if (!fs.existsSync(timelineFile)) {
+    console.error(`Error: ${timelineFile} not found.`);
     process.exit(1);
 }
 
-const content = fs.readFileSync(testFile, 'utf8');
-const lines = content.split('\n');
+const timeline = JSON.parse(fs.readFileSync(timelineFile, 'utf8'));
 
-// Regex to capture "Start-End s: Message"
-// Example: cy.log("0-3s: Site açılıyor");
-const logRegex = /cy\.log\(["'](\d+)-(\d+)s:\s*(.*?)["']\)/;
+if (timeline.length === 0) {
+    console.error('Error: Timeline is empty.');
+    process.exit(1);
+}
 
-let timeline = [];
+// Calculate relative times
+// The first event is t=0 (or slightly after video start)
+// We'll assume the video starts recording roughly when the test starts.
+// To be safe, we can use the first timestamp as the base.
+const startTime = timeline[0].timestamp;
 
-lines.forEach(line => {
-    const match = line.match(logRegex);
-    if (match) {
-        const start = parseInt(match[1]);
-        const end = parseInt(match[2]);
-        const text = match[3];
+const segments = timeline.map((item, index) => {
+    const relativeStartMs = item.timestamp - startTime;
+    const relativeStartSec = relativeStartMs / 1000;
 
-        timeline.push({
-            start: start,
-            end: end, // Useful for debugging or duration checks
-            text: text,
-            duration: end - start // Approximate duration window
-        });
+    // Estimate duration until next event, or default 3s for last
+    let durationSec = 3;
+    if (index < timeline.length - 1) {
+        durationSec = (timeline[index + 1].timestamp - item.timestamp) / 1000;
     }
-});
 
-// Sort by start time just in case
-timeline.sort((a, b) => a.start - b.start);
+    return {
+        id: index,
+        text: item.message,
+        start: relativeStartSec,
+        end: relativeStartSec + durationSec,
+        duration: durationSec
+    };
+});
 
 // Generate SRT
 let srtContent = '';
-timeline.forEach((item, index) => {
+segments.forEach((item, index) => {
     const start = formatTime(item.start);
-    // End subtitle at the end of the window, or start of next item?
-    // Using the explicit 'end' from the log is safest.
     const end = formatTime(item.end);
     srtContent += `${index + 1}\n${start} --> ${end}\n${item.text}\n\n`;
 });
 
 // Write files
 fs.writeFileSync(srtFile, srtContent);
-fs.writeFileSync(timelineFile, JSON.stringify(timeline, null, 2));
+fs.writeFileSync(segmentsFile, JSON.stringify(segments, null, 2));
 
-console.log(`Extracted ${timeline.length} segments using explicit timestamps.`);
-console.log(`Generated ${srtFile} and ${timelineFile}`);
+console.log(`Extracted ${segments.length} segments.`);
+console.log(`Generated ${srtFile} and ${segmentsFile}`);
 
 function formatTime(seconds) {
     const date = new Date(0);
-    date.setSeconds(seconds);
+    date.setMilliseconds(seconds * 1000);
     const iso = date.toISOString().substr(11, 12);
     return iso.replace('.', ',');
 }

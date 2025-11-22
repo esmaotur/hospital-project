@@ -12,7 +12,7 @@ export const Input: React.FC<InputProps> = ({ label, error, className = '', ...p
                 {label}
             </label>
             <input
-                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${error ? 'border-red-500' : 'border-gray-300'
+                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary bg-primary/5 ${error ? 'border-red-500' : 'border-primary/30'
                     } ${className}`}
                 {...props}
             />

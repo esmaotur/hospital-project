@@ -5,8 +5,8 @@
 :root {
   --background: 265 50% 98%;
   --foreground: 265 40% 20%;
-  --primary: 271 100% 74%;
-  /* #c07cff */
+  --primary: 271 90% 65%;
+  /* #c07cff -> Richer Purple */
   --primary-foreground: 0 0% 100%;
   --secondary: 265 100% 70%;
   /* #a566ff */

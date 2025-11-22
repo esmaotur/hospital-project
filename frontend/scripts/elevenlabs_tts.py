@@ -6,7 +6,12 @@ import json
 import urllib.request
 import urllib.error
 
-def generate_segment(text, output_file, api_key):
+def generate_speech(text, output_file):
+    api_key = os.environ.get("ELEVENLABS_API_KEY")
+    if not api_key:
+        print("Error: ELEVENLABS_API_KEY not set.")
+        sys.exit(1)
+
     # Voice ID: Rachel (English) - 21m00Tcm4TlvDq8ikWAM
     # Using 'eleven_multilingual_v2' for Turkish.
     voice_id = "21m00Tcm4TlvDq8ikWAM" 
@@ -32,37 +37,16 @@ def generate_segment(text, output_file, api_key):
         with urllib.request.urlopen(req) as response:
             with open(output_file, 'wb') as f:
                 f.write(response.read())
-        print(f"Generated: {output_file}")
+    except urllib.error.HTTPError as e:
+        print(f"HTTP Error: {e.code} - {e.read().decode('utf-8')}")
+        sys.exit(1)
     except Exception as e:
-        print(f"Error generating {output_file}: {e}")
+        print(f"Error: {e}")
         sys.exit(1)
-
-def main():
-    api_key = os.environ.get("ELEVENLABS_API_KEY")
-    if not api_key:
-        print("Error: ELEVENLABS_API_KEY not set.")
-        sys.exit(1)
-
-    if not os.path.exists('timeline.json'):
-        print("Error: timeline.json not found.")
-        sys.exit(1)
-
-    with open('timeline.json', 'r', encoding='utf-8') as f:
-        timeline = json.load(f)
-
-    output_dir = "audio_segments"
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-
-    print(f"Generating audio for {len(timeline)} segments...")
-
-    for i, item in enumerate(timeline):
-        text = item['text']
-        output_file = os.path.join(output_dir, f"{i}.mp3")
-        
-        # Skip if already exists (optional, but good for retries)
-        # For now, overwrite to be safe
-        generate_segment(text, output_file, api_key)
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) < 3:
+        print("Usage: python3 elevenlabs_tts.py <text> <output_mp3>")
+        sys.exit(1)
+
+    generate_speech(sys.argv[1], sys.argv[2])

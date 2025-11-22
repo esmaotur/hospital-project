@@ -1,2 +1,11 @@
 frontend/node_modules/
 backend/node_modules/
+frontend/.next/
+frontend/cypress/videos/
+frontend/audio_segments/
+frontend/final-demo.mp4
+frontend/server.log
+frontend/cypress.log
+frontend/segments.json
+frontend/timeline.json
+frontend/narration.*

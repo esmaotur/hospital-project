@@ -2,6 +2,9 @@
 
 describe('Randevu Alma Senaryosu', () => {
     beforeEach(() => {
+        // Clear timeline at start
+        cy.task('clearTimeline');
+
         // Mock Login
         cy.intercept('POST', '**/login', {
             statusCode: 200,
@@ -39,77 +42,85 @@ describe('Randevu Alma Senaryosu', () => {
         }).as('getAppointments');
     });
 
-    it('Kullanıcı giriş yapar, doktor seçer ve randevu alır (40 saniye)', () => {
-        // 0-3 sn: Site açılıyor
+    // Helper to log timeline
+    const logStep = (message: string) => {
+        cy.then(() => {
+            const timestamp = Date.now();
+            cy.task('logTimeline', { message, timestamp });
+        });
+    };
+
+    it('Kullanıcı giriş yapar, doktor seçer ve randevu alır', () => {
+        // 1. Site Açılıyor
+        logStep("Kullanıcı giriş sayfasına yönlendiriliyor");
         cy.visit('/login');
-        cy.log("0-3s: Kullanıcı giriş sayfasına yönlendiriliyor");
-        cy.wait(3000);
+        cy.wait(5000);
 
-        // 3-5 sn: Email
-        cy.log("3-5s: Email yazılıyor");
+        // 2. Email
+        logStep("Email yazılıyor");
         cy.get('[data-cy="email"]').type('patient@example.com');
-        cy.wait(2000);
+        cy.wait(1500);
 
-        // 5-8 sn: Şifre
-        cy.log("5-8s: Şifre yazılıyor");
+        // 3. Şifre
+        logStep("Şifre yazılıyor");
         cy.get('[data-cy="password"]').type('password123');
+        cy.wait(1500);
+
+        // 4. Giriş
+        logStep("Giriş yapılıyor");
+        cy.get('[data-cy="login-button"]').click();
         cy.wait(3000);
 
-        // 8-12 sn: Giriş
-        cy.log("8-12s: Giriş yapılıyor");
-        cy.get('[data-cy="login-button"]').click();
-        cy.wait(4000);
-
-        // 12-14 sn: Dashboard
+        // 5. Dashboard
         cy.url().should('include', '/dashboard');
-        cy.log("12-14s: Dashboard sayfası yüklendi");
-        cy.wait(2000);
+        logStep("Dashboard sayfası yüklendi");
+        cy.wait(1500);
 
-        // 14-20 sn: Doktorlar
-        cy.log("14-20s: Doktorlar listeleniyor");
+        // 6. Doktor Listesi Butonu
+        logStep("Doktorlar listeleniyor");
         cy.get('[data-cy="view-doctors-button"]').click();
-        cy.wait(6000);
+        cy.wait(3000);
 
-        // 20-22 sn: Doktor Listesi
+        // 7. Doktor Sayfası
         cy.url().should('include', '/doctors');
-        cy.log("20-22s: Doktor listesi sayfası yüklendi");
-        cy.wait(2000);
+        logStep("Doktor listesi sayfası yüklendi");
+        cy.wait(1500);
 
-        // 22-27 sn: Doktor Seçimi
-        cy.log("22-27s: İlk doktor seçildi ve randevu sayfasına gidiliyor");
+        // 8. Doktor Seçimi
+        logStep("İlk doktor seçildi ve randevu sayfasına gidiliyor");
         cy.get('[data-cy="doctor-card"]').first().within(() => {
             cy.contains('Book Appointment').click();
         });
-        cy.wait(5000);
+        cy.wait(3000);
 
-        // 27-28 sn: Form Yüklendi
+        // 9. Form Yüklendi
         cy.url().should('include', '/appointments/new');
-        cy.log("27-28s: Randevu formu sayfası yüklendi");
+        logStep("Randevu formu sayfası yüklendi");
         cy.wait(1000);
 
-        // 28-30 sn: Tarih
-        cy.log("28-30s: Tarih seçiliyor");
+        // 10. Tarih
+        logStep("Tarih seçiliyor");
         cy.get('[data-cy="appointment-date"]').type('2025-12-01');
-        cy.wait(2000);
+        cy.wait(1500);
 
-        // 30-32 sn: Saat
-        cy.log("30-32s: Saat seçiliyor");
+        // 11. Saat
+        logStep("Saat seçiliyor");
         cy.get('[data-cy="appointment-time"]').type('14:30');
-        cy.wait(2000);
+        cy.wait(1500);
 
-        // 32-34 sn: Not
-        cy.log("32-34s: Not ekleniyor");
+        // 12. Not
+        logStep("Not ekleniyor");
         cy.get('textarea').type('Genel kontrol randevusu istiyorum.');
-        cy.wait(2000);
+        cy.wait(1500);
 
-        // 34-38 sn: Onay
-        cy.log("34-38s: Randevu onaylanıyor");
+        // 13. Onay
+        logStep("Randevu onaylanıyor");
         cy.get('[data-cy="appointment-submit"]').click();
-        cy.wait(4000);
+        cy.wait(3000);
 
-        // 38-40 sn: Bitiş
+        // 14. Bitiş
         cy.url().should('include', '/appointments');
-        cy.log("38-40s: Randevularım sayfası yüklendi - Test tamamlandı!");
+        logStep("Randevularım sayfası yüklendi - Test tamamlandı!");
         cy.wait(2000);
     });
 });

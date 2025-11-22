@@ -14,7 +14,7 @@ export const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     <div className="flex">
-                        <Link href="/dashboard" className="flex-shrink-0 flex items-center font-bold text-xl text-blue-600">
+                        <Link href="/dashboard" className="flex-shrink-0 flex items-center font-bold text-xl text-primary">
                             Hospital App
                         </Link>
                         <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
